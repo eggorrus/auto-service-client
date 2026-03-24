@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane xmlns="http://javafx.com/javafx/17"
+         xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="ui.MainController"
+         tabClosingPolicy="UNAVAILABLE">
+
+    <Tab text="Заказ-наряды">
+        <VBox>
+            <VBox.margin>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </VBox.margin>
+
+            <HBox spacing="10" style="-fx-padding: 10;">
+                <Button text="Добавить заказ-наряд" onAction="#addWorkOrder"/>
+                <Button text="Удалить заказ-наряд" onAction="#deleteWorkOrder"/>
+                <Button text="Обновить" onAction="#refreshData"/>
+            </HBox>
+            <TableView fx:id="orderTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="orderIdCol" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="orderClientCol" text="Клиент" prefWidth="150"/>
+                    <TableColumn fx:id="orderMasterCol" text="Мастер" prefWidth="150"/>
+                    <TableColumn fx:id="orderServiceCol" text="Услуга" prefWidth="150"/>
+                    <TableColumn fx:id="orderBreakdownCol" text="Поломка" prefWidth="100"/>
+                    <TableColumn fx:id="orderStatusCol" text="Статус" prefWidth="120"/>
+                    <TableColumn fx:id="orderPriceCol" text="Цена" prefWidth="80"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+    </Tab>
+
+    <Tab text="Клиенты">
+        <VBox>
+            <VBox.margin>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </VBox.margin>
+            <HBox spacing="10">
+                <Button text="Добавить клиента" onAction="#addClient"/>
+                <Button text="Удалить клиента" onAction="#deleteClient"/>
+            </HBox>
+            <TableView fx:id="clientTable" editable="true" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="clientIdCol" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="clientFirstNameCol" text="Имя" prefWidth="100"/>
+                    <TableColumn fx:id="clientLastNameCol" text="Фамилия" prefWidth="100"/>
+                    <TableColumn fx:id="clientCarCol" text="Машина" prefWidth="120"/>
+                    <TableColumn fx:id="clientPhoneCol" text="Телефон" prefWidth="120"/>
+                    <TableColumn fx:id="clientInfoCol" text="Инфо" prefWidth="200"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+    </Tab>
+
+    <Tab text="Мастера">
+        <VBox>
+            <VBox.margin>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </VBox.margin>
+            <HBox spacing="10">
+                <Button text="Добавить мастера" onAction="#addMaster"/>
+                <Button text="Удалить мастера" onAction="#deleteMaster"/>
+            </HBox>
+            <TableView fx:id="masterTable" editable="true" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="masterIdCol" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="masterFirstNameCol" text="Имя" prefWidth="100"/>
+                    <TableColumn fx:id="masterLastNameCol" text="Фамилия" prefWidth="100"/>
+                    <TableColumn fx:id="masterSpecCol" text="Специализация" prefWidth="120"/>
+                    <TableColumn fx:id="masterActiveCol" text="Активен" prefWidth="80"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+    </Tab>
+
+    <Tab text="Услуги и цены">
+        <VBox>
+            <VBox.margin>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </VBox.margin>
+            <HBox spacing="10">
+                <Button text="Добавить услугу" onAction="#addPrice"/>
+                <Button text="Удалить услугу" onAction="#deletePrice"/>
+            </HBox>
+            <TableView fx:id="priceTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="priceIdCol" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="priceNameCol" text="Услуга" prefWidth="200"/>
+                    <TableColumn fx:id="priceValueCol" text="Цена" prefWidth="100"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+    </Tab>
+
+</TabPane>
